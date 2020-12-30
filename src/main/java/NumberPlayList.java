@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -38,5 +39,19 @@ public class NumberPlayList {
                         .peek(n-> System.out.println("peak even number "+n))
                         .findFirst().orElse(null);
         System.out.println("first even "+first);
+
+        //method4 - find minimum from stream
+        Integer min = myNumberList.stream()
+                .filter(isEvenFunction)
+                .min(Comparator.comparing(Integer::intValue))
+                .orElse(null);
+        System.out.println(" min value" +min);
+
+        //method5 - find maximum from stream
+        Integer max = myNumberList.stream()
+                .filter(isEvenFunction)
+                .max(Comparator.comparing(Integer::intValue))
+                .orElse(null);
+            System.out.println(" max value" +max);
     }
 }
