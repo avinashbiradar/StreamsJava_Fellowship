@@ -53,5 +53,11 @@ public class NumberPlayList {
                 .max(Comparator.comparing(Integer::intValue))
                 .orElse(null);
             System.out.println(" max value" +max);
+
+        //method6-average from the number stream
+        Integer sum =myNumberList.stream().
+                reduce(0,Integer::sum);
+        long count = myNumberList.stream().count();
+        System.out.println("Average is "+sum+"/"+count+"="+sum/count);
     }
 }
